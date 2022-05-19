@@ -21,7 +21,7 @@ if (numberOfProblem == 1) {
     alert(`Результат задачи номер ${numberOfProblem}: ${eulerTenth(2000000)}`)
 } else if (numberOfProblem == 11) {
     alert(`Результат задачи номер ${numberOfProblem}: ${eulerEleventh()}`)
-}
+}10
 
 
 
@@ -59,13 +59,15 @@ function eulerThird(number) {
 // console.log(eulerThird(13195));
 //#4
 function eulerForth() {
+    let maxPalindrome = 0;
     for (let i = 1000; i > 99; i--) {
         for (let j = 1000; j > 99; j--) {
-            if (isNumberPalindrome(i * j)) {
-                return i * j;
+            if (isNumberPalindrome(i * j) && maxPalindrome < i*j) {
+                maxPalindrome = i*j;
             }
         }
     }
+    return maxPalindrome;
 }
 // console.log(eulerForth());
 
@@ -148,7 +150,7 @@ function eulerNinth() {
 //#10
 function eulerTenth(number) {
     let sumPrimeNumbers = 0;
-    for (let i = 2; i < number; i++) {
+    for (let i = 2; i <= number; i++) {
         if (isNumberPrimeFaster(i)) {
             sumPrimeNumbers += i;
         }
